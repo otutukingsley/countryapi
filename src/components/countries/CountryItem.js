@@ -6,7 +6,7 @@ const CountryItem = (prop) => {
     const {name, flag, capital, population, region} = prop.country
     return (
         <div className="country-card">
-            <Link to='#' className="country" style={{ color: '#333333' }}>
+            <Link to={`/name/${name}`} className="country" style={{ color: '#333333' }}>
                 <div className="img-container">
                     <img src={flag} alt="FLAG" />
                 </div>

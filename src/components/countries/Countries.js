@@ -4,7 +4,7 @@ import Spinner from '../layouts/Spinner'
 
 const Countries = (props) => {
 
-const {countries, getCountries, loading} = props
+const {getCountries, loading, filteredCountry} = props
 
     useEffect(() => {
         getCountries()
@@ -15,8 +15,8 @@ const {countries, getCountries, loading} = props
             return <Spinner/>
         }else{
             return (
-                <div className="grid-4">
-                    {countries.map(eachCountry => (
+                <div className="grid-4 mt-4">
+                    {filteredCountry.map(eachCountry => (
                        <CountryItem key={eachCountry.alpha3Code} country={eachCountry}/> 
                     ))}
                 </div>

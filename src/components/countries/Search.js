@@ -1,32 +1,23 @@
 import React, { useState } from 'react'
 import Dropdown from './Dropdown'
 
-const Search = (props) => {
+const Search = ({filter, filterRegion}) => {
 
 const [text, setText] = useState('')
 
 const onChange = (e) => {
   setText(e.target.value)
-  props.filter(text.toLowerCase())
+  filter(text.toLowerCase())
 }
 
     return (
-        <div style={SearchStyle}>
+        <div className="search-styles">
             <form className="form">
                 <input type="text" autoComplete="off" name="text" placeholder="Search Country..." className="form-control" onChange={onChange}/>
             </form>
-            <Dropdown />
+            <Dropdown dropFilter={filterRegion}/>
         </div>
     )
-}
-
-const SearchStyle = {
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-    marginTop: '15px',
-    marginBottom: '15px'
 }
 
 export default Search
