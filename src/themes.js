@@ -25,8 +25,8 @@ export const GlobalStyles = createGlobalStyle`
     font-family: 'Roboto', sans-serif;
     font-size: 1rem;
     line-height: 1.6;
-    background-color: ${props => props.theme.body};
-    color: ${props => props.theme.bodyFontColor};
+    background-color: ${({ theme }) =>theme.body};
+    color: ${({ theme })=> theme.bodyFontColor};
   
   }
   
@@ -35,11 +35,11 @@ export const GlobalStyles = createGlobalStyle`
   }
   
   a:hover {
-    color: ${props => props.theme.hoverColor};
+    color: ${({ theme }) => theme.hoverColor};
   }
   
   ::placeholder {
-    color: ${props => props.theme.bodyFontColor};
+    color: ${({ theme }) => theme.bodyFontColor};
   }
   
   ul {
@@ -57,7 +57,19 @@ export const GlobalStyles = createGlobalStyle`
     overflow: hidden;
     padding: 0 2rem;
   }
+
+  .spinner-style{
+    width: 200px;
+    margin: 2rem auto;
+    display: block;
+    background-color: ${({ theme }) => theme.body};
+    color: ${({ theme }) => theme.bodyFontColor};
+  }
   
+  .spinner-gif{
+    background-color: ${({ theme }) => theme.body};
+    color: ${({ theme }) => theme.bodyFontColor};
+  }
   
   .ml-3{
     margin-left: 15px;
@@ -78,8 +90,8 @@ export const GlobalStyles = createGlobalStyle`
   
   .btn {
     display: inline-block;
-    background: ${props => props.theme.cards};
-    color: ${props => props.theme.bodyFontColor};
+    background: ${({ theme }) => theme.cards};
+    color: ${({ theme }) => theme.bodyFontColor};
     padding: 0.4rem 1.3rem;
     font-size: 1rem;
     border: none;
@@ -94,8 +106,8 @@ export const GlobalStyles = createGlobalStyle`
   }
   
   .btn-light,.bg-light{
-    background: ${props => props.theme.cards};
-    color: ${props => props.theme.bodyFontColor};
+    background: ${({ theme }) => theme.cards};
+    color: ${({ theme }) => theme.bodyFontColor};
   }
   
   .btn:hover {
@@ -105,7 +117,7 @@ export const GlobalStyles = createGlobalStyle`
   /* Forms */
   input {
     margin: 1.2rem 0;
-    background-color: ${props => props.theme.cards};
+    background-color: ${({ theme }) => theme.cards};
   }
   
   button {
@@ -135,11 +147,11 @@ export const GlobalStyles = createGlobalStyle`
     padding: 15px 15px 15px 25px;
     line-height: 1.7;
     position: absolute;
-    background: ${props => props.theme.cards};
+    background: ${({ theme }) => theme.cards};
   }
   
   .country{
-    color: ${props => props.theme.bodyFontColor};
+    color: ${({ theme }) => theme.bodyFontColor};
   }
   
   .country-card{
@@ -148,7 +160,7 @@ export const GlobalStyles = createGlobalStyle`
     overflow: hidden;
     margin: 20px auto;
     box-shadow: 5px 6px 11px -3px rgba(0, 0, 0, 0.2);
-    background-color:${props => props.theme.cards};
+    background-color:${({ theme }) => theme.cards};
   }
   
   .country-name {

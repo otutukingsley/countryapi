@@ -1,15 +1,15 @@
 import React, {useEffect} from 'react'
 import { Link } from 'react-router-dom';
 
-const SingleCountry = (props) => {
+const SingleCountry = ({ getSingleCountry, match, singleCountry }) => {
     useEffect(() => {
-        props.getSingleCountry(props.match.params.name);
+        getSingleCountry(match.params.name);
          // eslint-disable-next-line
     },[])
 
     return (
         <div>
-            {props.singleCountry.map((singleCon) => (
+            {singleCountry.map((singleCon) => (
                 <div key={singleCon.alpha2Code}  className="details">
                     <div className="button">
                     <Link to='/' className='btn btn-light btn-light-shadow mb-4'><i className="fa fa-long-arrow-left" aria-hidden="true"></i>  Back</Link>

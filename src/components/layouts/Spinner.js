@@ -3,17 +3,11 @@ import spinner from './spinner.gif'
 
  const Spinner = () => {
     return (
-        <div style={spinnerStyle}>
-            <img src={spinner} alt="Loading..." />
+        <div className="spinner-style">
+            <img src={spinner} alt="Loading..." className="spinner-gif"/>
         </div>
     )
 }
 
-const spinnerStyle = {
-    width: '200px',
-    margin: '2rem auto',
-    display: 'block',
-    backgroundColor: 'inherit'
-}
 
 export default Spinner;

@@ -2,10 +2,8 @@ import React, {useEffect} from 'react'
 import CountryItem from './CountryItem'
 import Spinner from '../layouts/Spinner'
 
-const Countries = (props) => {
-
-const {getCountries, loading, filteredCountry} = props
-
+const Countries = ({getCountries, loading, filteredCountry}) => {
+    
     useEffect(() => {
         getCountries()
         // eslint-disable-next-line

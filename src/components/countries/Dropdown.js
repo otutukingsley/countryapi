@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 
 
-const Dropdown = (props) => {
+const Dropdown = ({ dropFilter }) => {
     const [menu, setMenu] = useState(false)
     const [text, setText] = useState('')
 
@@ -16,7 +16,7 @@ const Dropdown = (props) => {
 
     const innerText = (e) => {
         setText(e.target.innerText)
-        props.dropFilter(text)
+       dropFilter(text)
     }
 
     return (

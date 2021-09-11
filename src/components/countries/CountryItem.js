@@ -1,9 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const CountryItem = (prop) => {
+const CountryItem = ({country: {name, flag, capital, population, region}}) => {
 
-    const {name, flag, capital, population, region} = prop.country
     return (
         <div className="country-card">
             <Link to={`/name/${name}`} className="country">
