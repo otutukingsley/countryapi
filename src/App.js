@@ -1,19 +1,35 @@
-import React, {useState, Fragment} from 'react'
+import React, {useState, Fragment, useEffect} from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Navbar from './components/layouts/Navbar'
 import Search from './components/countries/Search'
 import SingleCountry from './components/countries/SingleCountry';
 import Countries from './components/countries/Countries'
 import axios from 'axios'
-import './App.css'
+import { ThemeProvider } from 'styled-components';
+import { lightTheme, darkTheme, GlobalStyles  } from './themes';
 
  const App = () => {
    const [countries, setCountries] = useState([])
    const [loading, setLoading] = useState(false)
    const [filteredCountry, setFilter] = useState([])
    const [singleCountry, setSingleCountry] = useState([])
+   const [theme, setTheme] = useState('dark')
 
 
+   const setMode = mode => {
+     window.localStorage.setItem('theme', mode)
+     setTheme(mode)
+   }
+
+   useEffect(() => {
+    const localTheme = window.localStorage.getItem('theme')
+    localTheme ? setTheme(localTheme) : setMode('dark');
+   },[])
+
+
+  const themeToggler = () => {
+    theme === 'dark' ? setMode('light') : setMode('dark');
+  }
 
    const getCountries = async () => {
      setLoading(true)
@@ -55,10 +71,14 @@ import './App.css'
    
 
   return (
+  
+    
     <Router>
-      <div className="App">
-       <Navbar />
-        <div style={appStyle} className="container">
+      <ThemeProvider theme={theme === 'dark' ? darkTheme : lightTheme}>
+       <GlobalStyles/>
+        <div className="App">
+          <Navbar toggler={themeToggler} theme={theme}/>
+         <div className="container">
           <Switch>
             <Route exact path='/' render={
               (props) => (
@@ -72,16 +92,10 @@ import './App.css'
               <SingleCountry {...props} singleCountry={singleCountry} getSingleCountry={getSingleCountry}/>
             )}/>
           </Switch>
+         </div>
         </div>
-      </div>
+      </ThemeProvider>
     </Router>
   )
 }
-
-
-const appStyle ={
-  background: "#F5F5F5", 
-  height: 'auto'
-}
-
 export default App

@@ -10,9 +10,9 @@ const SingleCountry = (props) => {
     return (
         <div>
             {props.singleCountry.map((singleCon) => (
-                <div className="details" key={singleCon.alpha3Code}>
+                <div key={singleCon.alpha2Code}  className="details">
                     <div className="button">
-                    <Link to='/' className='btn btn-light btn-light-shadow mb-4'><i class="fa fa-long-arrow-left" aria-hidden="true"></i>  Back</Link>
+                    <Link to='/' className='btn btn-light btn-light-shadow mb-4'><i className="fa fa-long-arrow-left" aria-hidden="true"></i>  Back</Link>
                     </div>
                     <div className="details-section">
                      <div className="details-img-container">

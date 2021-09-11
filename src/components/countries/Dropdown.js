@@ -22,7 +22,7 @@ const Dropdown = (props) => {
     return (
         <div className="filter-position">
             <button className="btn btn-light btn-light-shadow" style={{ width: '100%' }} onClick={onClick}>
-                Filter by region <i class="fas fa-chevron-down ml-3"></i>
+                Filter by region <i className="fas fa-chevron-down ml-3"></i>
             </button>
             {menu && <ul className="menu btn-light-shadow">
               <li id="region" style={{ cursor: 'pointer' }} onClick={innerText}>Africa</li>

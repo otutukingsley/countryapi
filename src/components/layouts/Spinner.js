@@ -11,8 +11,9 @@ import spinner from './spinner.gif'
 
 const spinnerStyle = {
     width: '200px',
-    margin: 'auto',
-    display: 'block'
+    margin: '2rem auto',
+    display: 'block',
+    backgroundColor: 'inherit'
 }
 
 export default Spinner;
