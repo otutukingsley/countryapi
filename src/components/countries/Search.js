@@ -1,23 +1,36 @@
-import React, { useState } from 'react'
+import React, { useContext, useRef } from 'react'
 import Dropdown from './Dropdown'
+import countriesContext from '../context/countriesContext/countriesContext'
 
-const Search = ({filter, filterRegion}) => {
+const Search = () => {
+  const context = useContext(countriesContext)
+  const { filterCountries, clearFilter } = context
+  const filterText = useRef('')
 
-const [text, setText] = useState('')
+  const onChange = (e) => {
+      console.log(filterText.current.value)
+    if (filterText.current.value !== '') {
+      filterCountries(e.target.value)
+    } else {
+      clearFilter()
+    }
+  }
 
-const onChange = (e) => {
-  setText(e.target.value)
-  filter(text.toLowerCase())
-}
-
-    return (
-        <div className="search-styles">
-            <form className="form">
-                <input type="text" autoComplete="off" name="text" placeholder="Search Country..." className="form-control" onChange={onChange}/>
-            </form>
-            <Dropdown dropFilter={filterRegion}/>
-        </div>
-    )
+  return (
+    <div className="search-styles">
+      <form className="form">
+        <input
+          ref={filterText}
+          type="text"
+          autoComplete="off"
+          placeholder="Search Country..."
+          className="form-control"
+          onChange={onChange}
+        />
+      </form>
+      <Dropdown/>
+    </div>
+  )
 }
 
 export default Search

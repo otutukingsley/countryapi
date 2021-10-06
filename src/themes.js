@@ -118,6 +118,7 @@ export const GlobalStyles = createGlobalStyle`
   input {
     margin: 1.2rem 0;
     background-color: ${({ theme }) => theme.cards};
+    color: ${({ theme }) => theme.bodyFontColor};
   }
   
   button {
