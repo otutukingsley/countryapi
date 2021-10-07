@@ -18,7 +18,7 @@ const App = () => {
 
   useEffect(() => {
     const localTheme = window.localStorage.getItem('theme')
-    localTheme ? setTheme(localTheme) : setMode('dark')
+    localTheme ? setTheme(localTheme) : setMode('light')
   }, [])
 
   const themeToggler = () => {
